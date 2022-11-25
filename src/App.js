@@ -16,6 +16,7 @@ function App() {
 
   console.log(`palavra: ${palavra}`);
   console.log(`palavraEmJogo: ${palavraEmJogo}`);
+  console.log(`erros: ${erros}`);
   // input e letras ficam habilitadas
 
   return (
@@ -29,7 +30,11 @@ function App() {
         setPalavraEmJogo={setPalavraEmJogo}
       />
       <Letras
+        erros={erros}
+        setErros={setErros}
         palavra={palavra}
+        palavraEmJogo={palavraEmJogo}
+        setPalavraEmJogo={setPalavraEmJogo}
       />
       <Chute
         palavra={palavra}

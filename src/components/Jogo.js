@@ -1,4 +1,4 @@
-function Jogo({ palavra, palavras, setPalavra, setPalavraEmJogo, palavraEmJogo }) {
+function Jogo({ erros, palavra, palavras, setPalavra, setPalavraEmJogo, palavraEmJogo }) {
 
     function iniciarJogo() {
         let indice = Math.floor(Math.random() * palavras.length);
@@ -20,7 +20,7 @@ function Jogo({ palavra, palavras, setPalavra, setPalavraEmJogo, palavraEmJogo }
     return (
         <div className="jogo">
             <div className="imagem">
-                <img src=""></img>
+                <img src={erros ? `/assets/forca${erros}.png` : ""}></img>
             </div>
             <button onClick={iniciarJogo}>Escolher Palavra</button>
             <h1>{palavraEmJogo}</h1>

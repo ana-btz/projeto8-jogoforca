@@ -7,9 +7,12 @@ import palavras from "./palavras" // array de strings ---> palavras que o jogado
 function App() {
   // variaveis de estado
   const
+    [erros, setErros] = useState(0),
     [palavra, setPalavra] = useState(""),
+    [desabilitado, setDesabilitado] = useState("desabilitado"),
     [palavraEmJogo, setPalavraEmJogo] = useState(""),
-    [erros, setErros] = useState(0);
+    [letrasAcertadas, setLetrasAcertadas] = useState([]),
+    [letrasSelecionadas, setLetrasSelecionadas] = useState([]);
 
   // apertar "escolher palavra"
   // iniciar jogo
@@ -25,6 +28,8 @@ function App() {
         erros={erros}
         palavra={palavra}
         palavras={palavras}
+        desabilitado={desabilitado}
+        setDesabilitado={setDesabilitado}
         palavraEmJogo={palavraEmJogo}
         setPalavra={setPalavra}
         setPalavraEmJogo={setPalavraEmJogo}
@@ -33,8 +38,14 @@ function App() {
         erros={erros}
         setErros={setErros}
         palavra={palavra}
+        desabilitado={desabilitado}
+        setDesabilitado={setDesabilitado}
         palavraEmJogo={palavraEmJogo}
         setPalavraEmJogo={setPalavraEmJogo}
+        letrasAcertadas={letrasAcertadas}
+        setLetrasAcertadas={setLetrasAcertadas}
+        letrasSelecionadas={letrasSelecionadas}
+        setLetrasSelecionadas={setLetrasSelecionadas}
       />
       <Chute
         palavra={palavra}

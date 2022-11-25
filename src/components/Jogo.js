@@ -1,10 +1,11 @@
-function Jogo({ erros, palavra, palavras, setPalavra, setPalavraEmJogo, palavraEmJogo }) {
+function Jogo({ erros, palavra, palavras, setPalavra, desabilitado, setDesabilitado, setPalavraEmJogo, palavraEmJogo }) {
 
     function iniciarJogo() {
         let indice = Math.floor(Math.random() * palavras.length);
         const palavraSorteada = (palavras[indice].split(""));
         const palavraRenderizada = [];
 
+        setDesabilitado("habilitado");
         setPalavra(palavraSorteada);
 
         for (let i = 0; i < palavraSorteada.length; i++) {

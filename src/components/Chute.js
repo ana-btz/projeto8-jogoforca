@@ -37,15 +37,13 @@ function Chute({ chute, palavra, setPalavra, setChute, setPalavraEmJogo, setCorP
     return (
         <div className="chute">
             <h1>Já sei a palavra!</h1>
-            <input
+            <input data-test="guess-input"
                 value={chute}
-                data-test="guess-input"
                 disabled={palavra.length === 0}
                 onChange={(e) => setChute(e.target.value)}
                 onKeyDown={(e) => tratarKeyDown(e)}
             />
-            <button
-                data-test="guess-button"
+            <button data-test="guess-button"
                 disabled={palavra.length === 0}
                 onClick={tratarInput}>Chutar</button>
         </div>

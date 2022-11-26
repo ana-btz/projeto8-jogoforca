@@ -72,9 +72,8 @@ function Letras({ erros, setErros, palavra, setPalavra, desabilitado, setCorPala
     return (
         <div className="letras">
             {alfabeto.map((letra) =>
-                <button
+                <button data-test="letter"
                     key={letra}
-                    data-test="letter"
                     className={desabilitado}
                     disabled={palavra === ""}
                     onClick={(e) => selecionaBotao(letra, e.target)}

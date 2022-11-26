@@ -31,22 +31,12 @@ function Jogo(
     return (
         <div className="jogo">
             <div className="imagem">
-                <img
-                    data-test="game-image"
-                    src={erros ? `/assets/forca${erros}.png` : ""}
-                ></img>
+                <img data-test="game-image" src={erros ? `/assets/forca${erros}.png` : ""}></img>
             </div>
-            <button
-                data-test="choose-word"
-                onClick={iniciarJogo}
-            >
+            <button data-test="choose-word" onClick={iniciarJogo}>
                 Escolher Palavra
             </button>
-            <h1
-                data-test="word"
-                data-answer={palavra.join("")}
-                className={corPalavra}
-            >
+            <h1 data-test="word" data-answer={palavra.join("")} className={corPalavra}>
                 {palavraEmJogo}
             </h1>
         </div>

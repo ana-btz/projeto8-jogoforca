@@ -26,6 +26,7 @@ function App() {
     <div className="fundo">
       <Jogo
         erros={erros}
+        setErros={setErros}
         palavra={palavra}
         palavras={palavras}
         corPalavra={corPalavra}

@@ -3,6 +3,7 @@ function Jogo(
         erros,
         palavra,
         palavras,
+        setErros,
         corPalavra,
         setPalavra,
         desabilitado,
@@ -16,6 +17,7 @@ function Jogo(
 
         setDesabilitado("habilitado"); // habilita os botoes e o input
         setCorPalavra("");
+        setErros(0);
 
         let i = Math.floor(Math.random() * palavras.length); // numero aleatorio
         const palavraSorteada = (palavras[i].split("")); // palavra sorteada

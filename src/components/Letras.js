@@ -3,6 +3,7 @@ function Letras(
         erros,
         setErros,
         palavra,
+        setPalavra,
         desabilitado,
         setDesabilitado,
         palavraEmJogo,
@@ -27,23 +28,35 @@ function Letras(
         // const letrasClicadas = [...letrasSelecionadas, letra];
         // setLetrasSelecionadas(letrasClicadas);
         // console.log(`letrasClicadas: ${letrasClicadas}`);
+        const contador = erros + 1;
+        const resetPalavra = "";
 
-        desabilitarBotao(elemento);
+        if (contador < 6) {
+            console.log(`contador: ${contador}`);
+            desabilitarBotao(elemento);
 
-        if (palavra.includes(letra)) {
+            if (palavra.includes(letra)) {
 
-            for (let j = 0; j < palavra.length; j++) {
-                if (letra === palavra[j]) {
-                    palavraEmJogo[j] = letra;
-                    palavraAtualizada.push(letra);
-                } else {
-                    palavraAtualizada.push(palavraEmJogo[j]);
+                for (let j = 0; j < palavra.length; j++) {
+                    if (letra === palavra[j]) {
+                        palavraEmJogo[j] = letra;
+                        palavraAtualizada.push(letra);
+                    } else {
+                        palavraAtualizada.push(palavraEmJogo[j]);
+                    }
+
+                    setPalavraEmJogo(palavraAtualizada);
                 }
-
-                setPalavraEmJogo(palavraAtualizada);
+            } else {
+                setErros(contador);
             }
         } else {
-            setErros(erros + 1);
+            desabilitarBotao(elemento);
+            console.log(`contador: ${contador}`);
+
+            setErros(contador);
+            setPalavra(resetPalavra);
+            setDesabilitado("desabilitado");
         }
     }
 

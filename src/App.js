@@ -15,7 +15,7 @@ function App() {
     [letrasAcertadas, setLetrasAcertadas] = useState([]),
     [letrasSelecionadas, setLetrasSelecionadas] = useState([]);
 
-  console.log(`erros: ${erros}`);
+  // console.log(`erros: ${erros}`);
   console.log(`chute: ${chute}`);
   console.log(`palavra: ${palavra}`);
   console.log(`palavraEmJogo: ${palavraEmJogo}`);
@@ -37,6 +37,7 @@ function App() {
         erros={erros}
         setErros={setErros}
         palavra={palavra}
+        setPalavra={setPalavra}
         desabilitado={desabilitado}
         setDesabilitado={setDesabilitado}
         palavraEmJogo={palavraEmJogo}

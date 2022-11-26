@@ -28,7 +28,9 @@ function Chute({ chute, palavra, setChute }) {
                 onChange={(e) => setChute(e.target.value)}
                 onKeyDown={(e) => tratarKeyDown(e)}
             ></input>
-            <button onClick={tratarInput}>Chutar</button>
+            <button
+                disabled={palavra.length === 0}
+                onClick={tratarInput}>Chutar</button>
         </div>
     )
 }

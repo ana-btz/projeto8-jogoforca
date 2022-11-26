@@ -11,12 +11,12 @@ function App() {
     [chute, setChute] = useState(""),
     [palavra, setPalavra] = useState(""),
     [corPalavra, setCorPalavra] = useState(""),
-    [desabilitado, setDesabilitado] = useState("desabilitado"),
     [palavraEmJogo, setPalavraEmJogo] = useState(""),
     [letrasAcertadas, setLetrasAcertadas] = useState([]),
+    [desabilitado, setDesabilitado] = useState("desabilitado"),
     [letrasSelecionadas, setLetrasSelecionadas] = useState([]);
 
-  console.log(`erros: ${erros}`);
+  // console.log(`erros: ${erros}`);
   console.log(`chute: ${chute}`);
   console.log(`palavra: ${palavra}`);
   console.log(`palavraEmJogo: ${palavraEmJogo}`);
@@ -29,13 +29,12 @@ function App() {
         setErros={setErros}
         palavra={palavra}
         palavras={palavras}
-        corPalavra={corPalavra}
-        desabilitado={desabilitado}
-        setCorPalavra={setCorPalavra}
-        setDesabilitado={setDesabilitado}
-        palavraEmJogo={palavraEmJogo}
         setPalavra={setPalavra}
+        corPalavra={corPalavra}
+        setCorPalavra={setCorPalavra}
+        palavraEmJogo={palavraEmJogo}
         setPalavraEmJogo={setPalavraEmJogo}
+        setDesabilitado={setDesabilitado}
       />
       <Letras
         erros={erros}
@@ -47,10 +46,6 @@ function App() {
         setDesabilitado={setDesabilitado}
         palavraEmJogo={palavraEmJogo}
         setPalavraEmJogo={setPalavraEmJogo}
-        letrasAcertadas={letrasAcertadas}
-        setLetrasAcertadas={setLetrasAcertadas}
-        letrasSelecionadas={letrasSelecionadas}
-        setLetrasSelecionadas={setLetrasSelecionadas}
       />
       <Chute
         chute={chute}

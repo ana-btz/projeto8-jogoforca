@@ -6,7 +6,6 @@ function Jogo(
         setErros,
         corPalavra,
         setPalavra,
-        desabilitado,
         setCorPalavra,
         setDesabilitado,
         setPalavraEmJogo,
@@ -14,34 +13,42 @@ function Jogo(
     }
 ) {
     function iniciarJogo() {
-
-        setDesabilitado("habilitado"); // habilita os botoes e o input
-        setCorPalavra("");
-        setErros(0);
-
-        let i = Math.floor(Math.random() * palavras.length); // numero aleatorio
-        const palavraSorteada = (palavras[i].split("")); // palavra sorteada
-        const palavraRenderizada = []; // armazena os underlines e/ou letras conforme jogamos
-
-        setPalavra(palavraSorteada); // armazena a palavra sorteada no estado "palavra"
+        let i = Math.floor(Math.random() * palavras.length);
+        const palavraSorteada = (palavras[i].split(""));
+        const palavraRenderizada = [];
 
         for (let j = 0; j < palavraSorteada.length; j++) {
             palavraRenderizada.push("_ ");
         }
 
+        setErros(0);
+        setCorPalavra("");
+        setPalavra(palavraSorteada);
+        setDesabilitado("habilitado");
         setPalavraEmJogo(palavraRenderizada);
-
-        // console.log(`palavraSorteada: ${palavraSorteada}`);
-        // console.log(`palavraRenderizada: ${palavraRenderizada}`);
     }
 
     return (
         <div className="jogo">
             <div className="imagem">
-                <img src={erros ? `/assets/forca${erros}.png` : ""}></img>
+                <img
+                    data-test="game-image"
+                    src={erros ? `/assets/forca${erros}.png` : ""}
+                ></img>
             </div>
-            <button onClick={iniciarJogo}>Escolher Palavra</button>
-            <h1 className={corPalavra}>{palavraEmJogo}</h1>
+            <button
+                data-test="choose-word"
+                onClick={iniciarJogo}
+            >
+                Escolher Palavra
+            </button>
+            <h1
+                data-test="word"
+                data-answer={palavra.join("")}
+                className={corPalavra}
+            >
+                {palavraEmJogo}
+            </h1>
         </div>
     )
 }

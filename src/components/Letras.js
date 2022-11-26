@@ -1,22 +1,9 @@
-function Letras(
-    {
-        erros,
-        setErros,
-        palavra,
-        setPalavra,
-        desabilitado,
-        setCorPalavra,
-        setDesabilitado,
-        palavraEmJogo,
-        setPalavraEmJogo,
-        letrasAcertadas,
-        setLetrasAcertadas,
-        letrasSelecionadas,
-        setLetrasSelecionadas
-    }
-) {
+function Letras({ erros, setErros, palavra, setPalavra, desabilitado, setCorPalavra, setDesabilitado, palavraEmJogo, setPalavraEmJogo }) {
     const
-        alfabeto = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"],
+        alfabeto =
+            [
+                "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"
+            ],
         palavraAtualizada = [];
 
     function desabilitarBotao(elemento) {
@@ -34,13 +21,15 @@ function Letras(
 
         const contador = erros + 1;
         const resetPalavra = "";
+        console.log(`contador: ${contador}`);
+        console.log(`erros: ${erros}`);
 
         if (contador < 6) {
-            console.log(`contador: ${contador}`);
 
             if (palavra.includes(letra)) {
 
                 for (let j = 0; j < palavra.length; j++) {
+
                     if (letra === palavra[j]) {
                         palavraEmJogo[j] = letra;
                         palavraAtualizada.push(letra);
@@ -49,7 +38,6 @@ function Letras(
                         palavraAtualizada.push(palavraEmJogo[j]);
                         console.log(`palavraAtualizada: ${palavraAtualizada}`);
                     }
-
                     setPalavraEmJogo(palavraAtualizada);
                 }
 
@@ -65,6 +53,7 @@ function Letras(
             } else {
                 setErros(contador);
             }
+
         } else {
             // erros chegam a 6
             // perdeu o jogo
@@ -80,12 +69,12 @@ function Letras(
         }
     }
 
-
     return (
         <div className="letras">
-            {/* <div className="desabilitado"></div> */}
             {alfabeto.map((letra) =>
                 <button
+                    key={letra}
+                    data-test="letter"
                     className={desabilitado}
                     disabled={palavra === ""}
                     onClick={(e) => selecionaBotao(letra, e.target)}

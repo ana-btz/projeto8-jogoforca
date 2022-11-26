@@ -3,8 +3,6 @@ function Chute({ chute, palavra, setPalavra, setChute, setPalavraEmJogo, setCorP
         const palavraStr = palavra.join(""); // transforma palavra em str
         const input = chute.toLowerCase();
         const resetPalavra = "";
-        const corVitoria = "";
-        const corDerrota = "";
 
         if (isNaN(Number(input))) { // se input for um numero, nao faz nada
 
@@ -38,15 +36,16 @@ function Chute({ chute, palavra, setPalavra, setChute, setPalavraEmJogo, setCorP
 
     return (
         <div className="chute">
-            {/* <div className="desabilitado"></div> */}
             <h1>Já sei a palavra!</h1>
             <input
                 value={chute}
+                data-test="guess-input"
                 disabled={palavra.length === 0}
                 onChange={(e) => setChute(e.target.value)}
                 onKeyDown={(e) => tratarKeyDown(e)}
-            ></input>
+            />
             <button
+                data-test="guess-button"
                 disabled={palavra.length === 0}
                 onClick={tratarInput}>Chutar</button>
         </div>

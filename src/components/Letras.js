@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 function Letras(
     {
         erros,
@@ -15,8 +13,14 @@ function Letras(
         setLetrasSelecionadas
     }
 ) {
-    const alfabeto = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-    const palavraAtualizada = [];
+    const
+        alfabeto = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"],
+        palavraAtualizada = [];
+
+    function desabilitarBotao(elemento) {
+        elemento.classList.add("desabilitado");
+        elemento.disabled = desabilitado;
+    }
 
     function selecionaBotao(letra, elemento) {
         // console.log(letra)
@@ -24,14 +28,9 @@ function Letras(
         // setLetrasSelecionadas(letrasClicadas);
         // console.log(`letrasClicadas: ${letrasClicadas}`);
 
-        elemento.classList.add("desabilitado");
-        elemento.disabled = desabilitado;
+        desabilitarBotao(elemento);
 
         if (palavra.includes(letra)) {
-            const letrasCertas = [...letrasAcertadas, letra];
-            setLetrasAcertadas(letrasCertas);
-
-            console.log(`letrasCertas: ${letrasCertas}`);
 
             for (let j = 0; j < palavra.length; j++) {
                 if (letra === palavra[j]) {

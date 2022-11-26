@@ -1,14 +1,26 @@
-function Jogo({ erros, palavra, palavras, setPalavra, desabilitado, setDesabilitado, setPalavraEmJogo, palavraEmJogo }) {
-
+function Jogo(
+    {
+        erros,
+        palavra,
+        palavras,
+        setPalavra,
+        desabilitado,
+        setDesabilitado,
+        setPalavraEmJogo,
+        palavraEmJogo
+    }
+) {
     function iniciarJogo() {
-        let indice = Math.floor(Math.random() * palavras.length);
-        const palavraSorteada = (palavras[indice].split(""));
-        const palavraRenderizada = [];
 
-        setDesabilitado("habilitado");
-        setPalavra(palavraSorteada);
+        setDesabilitado("habilitado"); // habilita os botoes e o input
 
-        for (let i = 0; i < palavraSorteada.length; i++) {
+        let i = Math.floor(Math.random() * palavras.length); // numero aleatorio
+        const palavraSorteada = (palavras[i].split("")); // palavra sorteada
+        const palavraRenderizada = []; // armazena os underlines e/ou letras conforme jogamos
+
+        setPalavra(palavraSorteada); // armazena a palavra sorteada no estado "palavra"
+
+        for (let j = 0; j < palavraSorteada.length; j++) {
             palavraRenderizada.push("_ ");
         }
 

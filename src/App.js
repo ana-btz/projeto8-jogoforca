@@ -2,25 +2,24 @@ import React, { useState } from "react"
 import Jogo from "./components/Jogo"
 import Letras from "./components/Letras"
 import Chute from "./components/Chute"
-import palavras from "./palavras" // array de strings ---> palavras que o jogador devera advinhar
+import palavras from "./palavras"
 
 function App() {
   // variaveis de estado
   const
     [erros, setErros] = useState(0),
+    [chute, setChute] = useState(""),
     [palavra, setPalavra] = useState(""),
     [desabilitado, setDesabilitado] = useState("desabilitado"),
     [palavraEmJogo, setPalavraEmJogo] = useState(""),
     [letrasAcertadas, setLetrasAcertadas] = useState([]),
     [letrasSelecionadas, setLetrasSelecionadas] = useState([]);
 
-  // apertar "escolher palavra"
-  // iniciar jogo
-
+  console.log(`erros: ${erros}`);
+  console.log(`chute: ${chute}`);
   console.log(`palavra: ${palavra}`);
   console.log(`palavraEmJogo: ${palavraEmJogo}`);
-  console.log(`erros: ${erros}`);
-  // input e letras ficam habilitadas
+  console.log(`letrasAcertadas: ${letrasAcertadas}`);
 
   return (
     <div className="fundo">
@@ -48,7 +47,9 @@ function App() {
         setLetrasSelecionadas={setLetrasSelecionadas}
       />
       <Chute
+        chute={chute}
         palavra={palavra}
+        setChute={setChute}
       />
     </div>
   );

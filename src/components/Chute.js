@@ -1,4 +1,4 @@
-function Chute({ chute, palavra, setPalavra, setChute, setPalavraEmJogo, setCorPalavra, setDesabilitado }) {
+function Chute({ chute, palavra, setPalavra, setChute, setPalavraEmJogo, setCorPalavra, setDesabilitado, setErros }) {
     function tratarInput() {
         const palavraStr = palavra.join(""); // transforma palavra em str
         const input = chute.toLowerCase();
@@ -23,6 +23,7 @@ function Chute({ chute, palavra, setPalavra, setChute, setPalavraEmJogo, setCorP
                 setDesabilitado("desabilitado");
                 setCorPalavra("vermelho");
                 setPalavraEmJogo(palavra);
+                setErros(6);
             }
         }
 

@@ -59,6 +59,7 @@ function App() {
         setPalavraEmJogo={setPalavraEmJogo}
         setChute={setChute}
         setDesabilitado={setDesabilitado}
+        setErros={setErros}
       />
     </div>
   );

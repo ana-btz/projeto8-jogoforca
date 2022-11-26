@@ -6,24 +6,31 @@ function Chute({ chute, palavra, setPalavra, setChute, setPalavraEmJogo, setCorP
         const corVitoria = "";
         const corDerrota = "";
 
-        if (input === palavraStr) {
-            alert("parabens vc acertou");
+        if (isNaN(Number(input))) { // se input for um numero, nao faz nada
 
-            setPalavra(resetPalavra);
-            setDesabilitado("desabilitado");
-            setCorPalavra("verde");
+            if (input === palavraStr) {
+                // alert("parabens vc acertou");
 
-        } else {
-            alert("erraste");
+                setPalavra(resetPalavra);
+                setDesabilitado("desabilitado");
+                setCorPalavra("verde");
+                setPalavraEmJogo(palavra);
 
-            setCorPalavra("vermelho");
+            } else {
+                // alert("erraste");
+
+                setPalavra(resetPalavra);
+                setDesabilitado("desabilitado");
+                setCorPalavra("vermelho");
+                setPalavraEmJogo(palavra);
+            }
         }
 
         setChute("");
     }
 
     function tratarKeyDown(e) {
-        if (e.key === "Enter") {
+        if (e.key === "Enter" && e.target.value.length !== 0) {
             tratarInput();
         }
     }

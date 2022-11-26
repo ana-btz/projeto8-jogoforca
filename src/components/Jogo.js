@@ -3,8 +3,10 @@ function Jogo(
         erros,
         palavra,
         palavras,
+        corPalavra,
         setPalavra,
         desabilitado,
+        setCorPalavra,
         setDesabilitado,
         setPalavraEmJogo,
         palavraEmJogo
@@ -13,6 +15,7 @@ function Jogo(
     function iniciarJogo() {
 
         setDesabilitado("habilitado"); // habilita os botoes e o input
+        setCorPalavra("");
 
         let i = Math.floor(Math.random() * palavras.length); // numero aleatorio
         const palavraSorteada = (palavras[i].split("")); // palavra sorteada
@@ -36,7 +39,7 @@ function Jogo(
                 <img src={erros ? `/assets/forca${erros}.png` : ""}></img>
             </div>
             <button onClick={iniciarJogo}>Escolher Palavra</button>
-            <h1>{palavraEmJogo}</h1>
+            <h1 className={corPalavra}>{palavraEmJogo}</h1>
         </div>
     )
 }

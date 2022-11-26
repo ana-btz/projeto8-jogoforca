@@ -5,6 +5,7 @@ function Letras(
         palavra,
         setPalavra,
         desabilitado,
+        setCorPalavra,
         setDesabilitado,
         palavraEmJogo,
         setPalavraEmJogo,
@@ -28,12 +29,14 @@ function Letras(
         // const letrasClicadas = [...letrasSelecionadas, letra];
         // setLetrasSelecionadas(letrasClicadas);
         // console.log(`letrasClicadas: ${letrasClicadas}`);
+
+        desabilitarBotao(elemento);
+
         const contador = erros + 1;
         const resetPalavra = "";
 
         if (contador < 6) {
             console.log(`contador: ${contador}`);
-            desabilitarBotao(elemento);
 
             if (palavra.includes(letra)) {
 
@@ -41,24 +44,42 @@ function Letras(
                     if (letra === palavra[j]) {
                         palavraEmJogo[j] = letra;
                         palavraAtualizada.push(letra);
+                        console.log(`palavraAtualizada: ${palavraAtualizada}`)
                     } else {
                         palavraAtualizada.push(palavraEmJogo[j]);
+                        console.log(`palavraAtualizada: ${palavraAtualizada}`);
                     }
 
                     setPalavraEmJogo(palavraAtualizada);
                 }
+
+                if (palavra.join("") == palavraAtualizada.join("")) {
+                    // ganhou o jogo
+                    setCorPalavra("verde");
+
+                    setPalavra(resetPalavra);
+                    setDesabilitado("desabilitado");
+                    setPalavraEmJogo(palavra);
+                }
+
             } else {
                 setErros(contador);
             }
         } else {
-            desabilitarBotao(elemento);
+            // erros chegam a 6
+            // perdeu o jogo
+
             console.log(`contador: ${contador}`);
 
+            setCorPalavra("vermelho");
             setErros(contador);
+
             setPalavra(resetPalavra);
             setDesabilitado("desabilitado");
+            setPalavraEmJogo(palavra);
         }
     }
+
 
     return (
         <div className="letras">

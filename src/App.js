@@ -10,16 +10,17 @@ function App() {
     [erros, setErros] = useState(0),
     [chute, setChute] = useState(""),
     [palavra, setPalavra] = useState(""),
+    [corPalavra, setCorPalavra] = useState(""),
     [desabilitado, setDesabilitado] = useState("desabilitado"),
     [palavraEmJogo, setPalavraEmJogo] = useState(""),
     [letrasAcertadas, setLetrasAcertadas] = useState([]),
     [letrasSelecionadas, setLetrasSelecionadas] = useState([]);
 
-  // console.log(`erros: ${erros}`);
+  console.log(`erros: ${erros}`);
   console.log(`chute: ${chute}`);
   console.log(`palavra: ${palavra}`);
   console.log(`palavraEmJogo: ${palavraEmJogo}`);
-  console.log(`letrasAcertadas: ${letrasAcertadas}`);
+  // console.log(`letrasAcertadas: ${letrasAcertadas}`);
 
   return (
     <div className="fundo">
@@ -27,7 +28,9 @@ function App() {
         erros={erros}
         palavra={palavra}
         palavras={palavras}
+        corPalavra={corPalavra}
         desabilitado={desabilitado}
+        setCorPalavra={setCorPalavra}
         setDesabilitado={setDesabilitado}
         palavraEmJogo={palavraEmJogo}
         setPalavra={setPalavra}
@@ -39,6 +42,7 @@ function App() {
         palavra={palavra}
         setPalavra={setPalavra}
         desabilitado={desabilitado}
+        setCorPalavra={setCorPalavra}
         setDesabilitado={setDesabilitado}
         palavraEmJogo={palavraEmJogo}
         setPalavraEmJogo={setPalavraEmJogo}
@@ -50,7 +54,11 @@ function App() {
       <Chute
         chute={chute}
         palavra={palavra}
+        setPalavra={setPalavra}
+        setCorPalavra={setCorPalavra}
+        setPalavraEmJogo={setPalavraEmJogo}
         setChute={setChute}
+        setDesabilitado={setDesabilitado}
       />
     </div>
   );

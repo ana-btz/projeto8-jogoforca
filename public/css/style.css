@@ -64,6 +64,14 @@
     bottom: 10%;
 }
 
+.verde {
+    color: #27AE60;
+}
+
+.vermelho {
+    color: #FF0000;
+}
+
 .letras {
     width: 100%;
     max-width: 700px;

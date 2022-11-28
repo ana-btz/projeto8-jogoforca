@@ -1,23 +1,22 @@
-function Chute({ chute, palavra, setPalavra, setChute, setPalavraEmJogo, setCorPalavra, setDesabilitado, setErros }) {
+function Chute(
+    {
+        chute, palavra, setPalavra, setChute, setPalavraEmJogo, setCorPalavra, setDesabilitado, setErros
+    }
+) {
     function tratarInput() {
         const palavraStr = palavra.join(""); // transforma palavra em str
         const input = chute.toLowerCase();
-        const resetPalavra = "";
 
         if (isNaN(Number(input))) { // se input for um numero, nao faz nada
 
             if (input === palavraStr) {
-                // alert("parabens vc acertou");
-
-                setPalavra(resetPalavra);
+                setPalavra("");
                 setDesabilitado("desabilitado");
                 setCorPalavra("verde");
                 setPalavraEmJogo(palavra);
 
             } else {
-                // alert("erraste");
-
-                setPalavra(resetPalavra);
+                setPalavra("");
                 setDesabilitado("desabilitado");
                 setCorPalavra("vermelho");
                 setPalavraEmJogo(palavra);

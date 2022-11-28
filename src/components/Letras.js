@@ -4,60 +4,59 @@ function Letras({ letrasSelecionadas, setLetrasSelecionadas, erros, setErros, pa
             [
                 "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"
             ],
-        palavraAtualizada = [];
+        palavraAtualizada = [],
+        contador = erros + 1;
+
+    function vitoria() {
+        setPalavra("");
+        setCorPalavra("verde");
+        setDesabilitado("desabilitado");
+        setPalavraEmJogo(palavra);
+    }
+
+    function derrota() {
+        setCorPalavra("vermelho");
+        setErros(contador);
+        setPalavra("");
+        setDesabilitado("desabilitado");
+        setPalavraEmJogo(palavra);
+    }
+
+    function atualizarPalavraEmJogo(letra) {
+        for (let i = 0; i < palavra.length; i++) {
+            if (letra === palavra[i]) {
+                palavraEmJogo[i] = letra;
+                palavraAtualizada.push(letra);
+                console.log(`palavraAtualizada: ${palavraAtualizada}`)
+            } else {
+                palavraAtualizada.push(palavraEmJogo[i]);
+                console.log(`palavraAtualizada: ${palavraAtualizada}`);
+            }
+            setPalavraEmJogo(palavraAtualizada);
+        }
+        if (palavra.join("") == palavraAtualizada.join("")) {
+            vitoria();
+        }
+    }
 
     function selecionaBotao(letra) {
         const letrasClicadas = [...letrasSelecionadas, letra];
         setLetrasSelecionadas(letrasClicadas);
-        console.log(`letrasClicadas: ${letrasClicadas}`);
 
-        const contador = erros + 1;
-        const resetPalavra = "";
+        console.log(`letrasClicadas: ${letrasClicadas}`);
         console.log(`contador: ${contador}`);
-        console.log(`erros: ${erros}`);
 
         if (contador < 6) {
-
             if (palavra.includes(letra)) {
-
-                for (let j = 0; j < palavra.length; j++) {
-
-                    if (letra === palavra[j]) {
-                        palavraEmJogo[j] = letra;
-                        palavraAtualizada.push(letra);
-                        console.log(`palavraAtualizada: ${palavraAtualizada}`)
-                    } else {
-                        palavraAtualizada.push(palavraEmJogo[j]);
-                        console.log(`palavraAtualizada: ${palavraAtualizada}`);
-                    }
-                    setPalavraEmJogo(palavraAtualizada);
-                }
-
-                if (palavra.join("") == palavraAtualizada.join("")) {
-                    // ganhou o jogo
-                    setCorPalavra("verde");
-
-                    setPalavra(resetPalavra);
-                    setDesabilitado("desabilitado");
-                    setPalavraEmJogo(palavra);
-                }
-
+                atualizarPalavraEmJogo(letra);
             } else {
                 setErros(contador);
             }
-
+        } else if (contador === 6 && palavra.includes(letra)) {
+            atualizarPalavraEmJogo(letra);
         } else {
-            // erros chegam a 6
-            // perdeu o jogo
-
             console.log(`contador: ${contador}`);
-
-            setCorPalavra("vermelho");
-            setErros(contador);
-
-            setPalavra(resetPalavra);
-            setDesabilitado("desabilitado");
-            setPalavraEmJogo(palavra);
+            derrota();
         }
     }
 

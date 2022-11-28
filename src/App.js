@@ -5,22 +5,19 @@ import Chute from "./components/Chute"
 import palavras from "./palavras"
 
 function App() {
-  // variaveis de estado
   const
     [erros, setErros] = useState(0),
     [chute, setChute] = useState(""),
     [palavra, setPalavra] = useState(""),
     [corPalavra, setCorPalavra] = useState(""),
     [palavraEmJogo, setPalavraEmJogo] = useState(""),
-    [letrasAcertadas, setLetrasAcertadas] = useState([]),
     [desabilitado, setDesabilitado] = useState("desabilitado"),
     [letrasSelecionadas, setLetrasSelecionadas] = useState([]);
 
-  // console.log(`erros: ${erros}`);
+  console.log(`erros: ${erros}`);
   console.log(`chute: ${chute}`);
   console.log(`palavra: ${palavra}`);
   console.log(`palavraEmJogo: ${palavraEmJogo}`);
-  // console.log(`letrasAcertadas: ${letrasAcertadas}`);
 
   return (
     <div className="fundo">

@@ -12,11 +12,11 @@ function Jogo(
         palavraEmJogo
     }
 ) {
-    function iniciarJogo() {
-        let i = Math.floor(Math.random() * palavras.length);
-        const palavraSorteada = (palavras[i].split(""));
-        const palavraRenderizada = [];
+    let i = Math.floor(Math.random() * palavras.length);
+    const palavraSorteada = (palavras[i].split(""));
+    const palavraRenderizada = [];
 
+    function iniciarJogo() {
         for (let j = 0; j < palavraSorteada.length; j++) {
             palavraRenderizada.push("_ ");
         }
@@ -36,7 +36,7 @@ function Jogo(
             <button data-test="choose-word" onClick={iniciarJogo}>
                 Escolher Palavra
             </button>
-            <h1 data-test="word" data-answer={palavra.join("")} className={corPalavra}>
+            <h1 data-test="word" data-answer={palavra ? palavra.join("") : ""} className={corPalavra}>
                 {palavraEmJogo}
             </h1>
         </div>

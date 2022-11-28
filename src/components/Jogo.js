@@ -13,8 +13,8 @@ function Jogo(
         setLetrasSelecionadas
     }
 ) {
-    let i = Math.floor(Math.random() * palavras.length);
-    const palavraSorteada = (palavras[i].split(""));
+    let indice = Math.floor(Math.random() * palavras.length);
+    const palavraSorteada = (palavras[indice].split(""));
     const palavraRenderizada = [];
 
     function iniciarJogo() {
@@ -42,7 +42,7 @@ function Jogo(
                 {palavraEmJogo}
             </h1>
         </div>
-    )
+    );
 }
 
 export default Jogo;

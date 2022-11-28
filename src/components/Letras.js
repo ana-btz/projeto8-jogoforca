@@ -1,11 +1,25 @@
-function Letras({ letrasSelecionadas, setLetrasSelecionadas, erros, setErros, palavra, setPalavra, desabilitado, setCorPalavra, setDesabilitado, palavraEmJogo, setPalavraEmJogo }) {
+function Letras({
+    erros,
+    setErros,
+    palavra,
+    setPalavra,
+    desabilitado,
+    setCorPalavra,
+    setDesabilitado,
+    palavraEmJogo,
+    setPalavraEmJogo,
+    letrasSelecionadas,
+    setLetrasSelecionadas
+}
+) {
     const
-        alfabeto =
-            [
-                "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"
-            ],
+        alfabeto = [
+            "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",
+            "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"
+        ],
         palavraAtualizada = [],
-        contador = erros + 1;
+        contador = erros + 1,
+        limErros = 6;
 
     function vitoria() {
         setPalavra("");
@@ -27,14 +41,12 @@ function Letras({ letrasSelecionadas, setLetrasSelecionadas, erros, setErros, pa
             if (letra === palavra[i]) {
                 palavraEmJogo[i] = letra;
                 palavraAtualizada.push(letra);
-                console.log(`palavraAtualizada: ${palavraAtualizada}`)
             } else {
                 palavraAtualizada.push(palavraEmJogo[i]);
-                console.log(`palavraAtualizada: ${palavraAtualizada}`);
             }
             setPalavraEmJogo(palavraAtualizada);
         }
-        if (palavra.join("") == palavraAtualizada.join("")) {
+        if (palavra.join("") === palavraAtualizada.join("")) {
             vitoria();
         }
     }
@@ -43,10 +55,7 @@ function Letras({ letrasSelecionadas, setLetrasSelecionadas, erros, setErros, pa
         const letrasClicadas = [...letrasSelecionadas, letra];
         setLetrasSelecionadas(letrasClicadas);
 
-        console.log(`letrasClicadas: ${letrasClicadas}`);
-        console.log(`contador: ${contador}`);
-
-        if (contador < 6) {
+        if (contador < limErros) {
             if (palavra.includes(letra)) {
                 atualizarPalavraEmJogo(letra);
             } else {
@@ -55,7 +64,6 @@ function Letras({ letrasSelecionadas, setLetrasSelecionadas, erros, setErros, pa
         } else if (contador === 6 && palavra.includes(letra)) {
             atualizarPalavraEmJogo(letra);
         } else {
-            console.log(`contador: ${contador}`);
             derrota();
         }
     }
@@ -68,12 +76,12 @@ function Letras({ letrasSelecionadas, setLetrasSelecionadas, erros, setErros, pa
                     key={letra}
                     className={letrasSelecionadas.includes(letra) ? "desabilitado" : desabilitado}
                     disabled={letrasSelecionadas.includes(letra) || palavra === ""}
-                    onClick={(e) => selecionaBotao(letra, e.target)}
+                    onClick={(e) => selecionaBotao(letra)}
                 >
                     {letra.toUpperCase()}
                 </button>)}
         </div>
-    )
+    );
 }
 
 export default Letras;

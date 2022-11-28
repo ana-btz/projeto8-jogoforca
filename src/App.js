@@ -1,8 +1,8 @@
-import React, { useState } from "react"
-import Jogo from "./components/Jogo"
-import Letras from "./components/Letras"
-import Chute from "./components/Chute"
-import palavras from "./palavras"
+import React, { useState } from "react";
+import Jogo from "./components/Jogo";
+import Letras from "./components/Letras";
+import Chute from "./components/Chute";
+import palavras from "./palavras";
 
 function App() {
   const
@@ -13,11 +13,6 @@ function App() {
     [palavraEmJogo, setPalavraEmJogo] = useState(""),
     [desabilitado, setDesabilitado] = useState("desabilitado"),
     [letrasSelecionadas, setLetrasSelecionadas] = useState([]);
-
-  console.log(`erros: ${erros}`);
-  console.log(`chute: ${chute}`);
-  console.log(`palavra: ${palavra}`);
-  console.log(`palavraEmJogo: ${palavraEmJogo}`);
 
   return (
     <div className="fundo">

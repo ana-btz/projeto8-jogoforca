@@ -35,6 +35,7 @@ function App() {
         palavraEmJogo={palavraEmJogo}
         setPalavraEmJogo={setPalavraEmJogo}
         setDesabilitado={setDesabilitado}
+        setLetrasSelecionadas={setLetrasSelecionadas}
       />
       <Letras
         erros={erros}
@@ -46,6 +47,8 @@ function App() {
         setDesabilitado={setDesabilitado}
         palavraEmJogo={palavraEmJogo}
         setPalavraEmJogo={setPalavraEmJogo}
+        letrasSelecionadas={letrasSelecionadas}
+        setLetrasSelecionadas={setLetrasSelecionadas}
       />
       <Chute
         chute={chute}

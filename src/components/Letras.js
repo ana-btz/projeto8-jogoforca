@@ -1,4 +1,4 @@
-function Letras({ erros, setErros, palavra, setPalavra, desabilitado, setCorPalavra, setDesabilitado, palavraEmJogo, setPalavraEmJogo }) {
+function Letras({ letrasSelecionadas, setLetrasSelecionadas, erros, setErros, palavra, setPalavra, desabilitado, setCorPalavra, setDesabilitado, palavraEmJogo, setPalavraEmJogo }) {
     const
         alfabeto =
             [
@@ -6,18 +6,10 @@ function Letras({ erros, setErros, palavra, setPalavra, desabilitado, setCorPala
             ],
         palavraAtualizada = [];
 
-    function desabilitarBotao(elemento) {
-        elemento.classList.add("desabilitado");
-        elemento.disabled = desabilitado;
-    }
-
-    function selecionaBotao(letra, elemento) {
-        // console.log(letra)
-        // const letrasClicadas = [...letrasSelecionadas, letra];
-        // setLetrasSelecionadas(letrasClicadas);
-        // console.log(`letrasClicadas: ${letrasClicadas}`);
-
-        desabilitarBotao(elemento);
+    function selecionaBotao(letra) {
+        const letrasClicadas = [...letrasSelecionadas, letra];
+        setLetrasSelecionadas(letrasClicadas);
+        console.log(`letrasClicadas: ${letrasClicadas}`);
 
         const contador = erros + 1;
         const resetPalavra = "";
@@ -72,10 +64,11 @@ function Letras({ erros, setErros, palavra, setPalavra, desabilitado, setCorPala
     return (
         <div className="letras">
             {alfabeto.map((letra) =>
-                <button data-test="letter"
+                <button
+                    data-test="letter"
                     key={letra}
-                    className={desabilitado}
-                    disabled={palavra === ""}
+                    className={letrasSelecionadas.includes(letra) ? "desabilitado" : desabilitado}
+                    disabled={letrasSelecionadas.includes(letra) || palavra === ""}
                     onClick={(e) => selecionaBotao(letra, e.target)}
                 >
                     {letra.toUpperCase()}

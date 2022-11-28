@@ -9,7 +9,8 @@ function Jogo(
         setCorPalavra,
         setDesabilitado,
         setPalavraEmJogo,
-        palavraEmJogo
+        palavraEmJogo,
+        setLetrasSelecionadas
     }
 ) {
     let i = Math.floor(Math.random() * palavras.length);
@@ -26,6 +27,7 @@ function Jogo(
         setPalavra(palavraSorteada);
         setDesabilitado("habilitado");
         setPalavraEmJogo(palavraRenderizada);
+        setLetrasSelecionadas([]);
     }
 
     return (
